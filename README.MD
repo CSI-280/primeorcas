@@ -1,6 +1,3 @@
-griffin baxter
-Will Gesler
-Noah Anderson
-Joseph Castaner
-Richard Honiker
-aaa
+Noah Anderson  
+Will Gesler  
+Griffin Baxter  
