@@ -1,3 +1,4 @@
 Noah Anderson  
 Will Gesler  
-Griffin Baxter  
+Griffin Baxter
+Zachary Jones
