@@ -1,4 +1,3 @@
-Noah Anderson__<<<<<<< Updated upstream
 Noah Anderson__
 =======
 Team PrimeOrcas Readme    
