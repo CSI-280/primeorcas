@@ -19,5 +19,9 @@ How to Use
 -----------
     
 Notes    
+<<<<<<< Updated upstream
+-----------
+>>>>>>> Stashed changes
+=======
 -----------
 >>>>>>> Stashed changes
