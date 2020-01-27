@@ -1,5 +1,3 @@
-Noah Anderson
-=======
 Team PrimeOrcas Readme    
 =======
 
@@ -20,4 +18,3 @@ How to Use
     
 Notes    
 -----------
->>>>>>> Stashed changes
