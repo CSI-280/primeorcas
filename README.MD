@@ -1,4 +1,4 @@
-Noah Anderson__
+Noah Anderson
 =======
 Team PrimeOrcas Readme    
 =======
