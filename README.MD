@@ -21,11 +21,9 @@ Setup
     
 How to Use    
 -----------
+Currently, our site does not have much functionality. It is possible to switch between the home page and the locator using the buttons in the top right. On the locator page, use the buttons on the slideshow to move between images.
     
 Notes    
-<<<<<<< Updated upstream
------------
-=======
 -----------
 
 Future Features 
