@@ -3,8 +3,23 @@
 /* Thanks to https://www.w3schools.com/howto/howto_js_slideshow.asp */
 
 
+
+* {
+	box-sizing: border-box;
+}
+
+/*slideshow*/
+.petSlideshow { 
+	display: none
+}
+
+/*Image*/
+img {
+	vertical-align: middle;
+}
+
 /*Slideshow Container*/
-.slideshoe-container {
+.slideshow-container {
 	max-width: 1000px;
 	position: relative;
 	margin: auto;
@@ -23,6 +38,7 @@
 	font-size: 18px;
 	transition: 0.6s ease;
 	border-radius: 0 3px 3px 0;
+	user-select: none;
 }
 
 /* Specify the 'next' button's postion */
@@ -51,4 +67,9 @@
 @keyframes fade {
 	from {opacity: .4}
 	to {opacity: 1}
+}
+
+/*On smaller screens, decrease text size*/
+@media only screen and(max-width: 300px) {
+	.prev, .next {font-size: 11px}
 }
