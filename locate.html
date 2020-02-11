@@ -13,8 +13,8 @@
 
     <!-- Custom styles for this template -->
     <link href="narrow-jumbotron.css" rel="stylesheet">
-	<link rel ="stylesheet" href="locate.css">
-	<script src="locate.js"></script>
+  <link rel ="stylesheet" href="locate.css">
+ 
   </head>
   
   <body>
@@ -38,14 +38,14 @@
           <div class="col-lg-12">
             <!-- https://www.w3schools.com/howto/howto_js_slideshow.asp -->
             <div class="slideshow-container">
-              <div class="slideshow fade">
-                <img class="card-img-top" src="dog-training.jpg" alt="One of the many pets you can find using our locator!">
+              <div class="petSlideshow fade">
+                <img src="dog-training.jpg" alt="One of the many pets you can find using our locator!" style="width:100%">
               </div>
-              <div class="slideshow fade">
-                <img class="card-img-top" src="philadelphia-kennel.jpg" alt="One of the many pets you can find using our locator!">
+              <div class="petSlideshow fade">
+                <img src="philadelphia-kennel.jpg" alt="One of the many pets you can find using our locator!" style="width:100%">
               </div>
-              <div class="slideshow fade">
-                <img class="card-img-top" src="hipster-dog.jpg" alt="One of the many pets you can find using our locator!">
+              <div class="petSlideshow fade">
+                <img src="hipster-dog.jpg" alt="One of the many pets you can find using our locator!" style="width:100%">
               </div>
               <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
               <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -54,20 +54,22 @@
 			<h2>Find Pets By Location:</h2>
             <p>Enter your address and select the type of pet you're looking for, and we'll locate pets up for adoption near you!</p>
             <center><input type="text" id = "inputBox" placeholder="Enter your City, State, or ZIP..." value="Burlington, VT"> 
-            <select>
-              <option value="all">All Pets</option>
-              <option value="dogs">Dogs</option>
-              <option value="cats">Cats</option>
-              <option value="birds">Birds</option>
-              <option value="fish">Fish</option>
-              <option value="other">Other</option>
+            <select id="dropdownSelection">
+              <option value="Animals">All Pets</option>
+              <option value="Dog">Dogs</option>
+              <option value="Cat">Cats</option>
+              <option value="Bird">Birds</option>
+              <option value="Fish">Fish</option>
+              <option value="Other">Other</option>
             </select>
-            <button onclick="send_message(document.getElementById('inputBox').value)" type="button" class="btn btn-default"> <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></button>
+             <button onclick="init(); displayByType(dropdownSelection.value)" type="button" class="btn btn-default"> <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></button>
             </center>
           </div>
       </main>
 	
-      
+      <!--This is where the pet's data will be displayed -->
+      <div id="feedContent">
+      </div>
 
     </div> <!-- /container -->
 </body>
@@ -82,5 +84,12 @@
     <!-- https://www.w3schools.com/Bootstrap/bootstrap_ref_comp_glyphs.asp -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> </body>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js%22%3E"></script>
+    <script src="https://unpkg.com/@petfinder/petfinder-js/dist/petfinder.min.js%22%3E"></script>
+     </body>
+  <!-- jQuery -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/@petfinder/petfinder-js/dist/petfinder.min.js"></script>
+	<script src="locate.js"></script>
 </html>
