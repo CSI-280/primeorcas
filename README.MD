@@ -27,7 +27,6 @@ Page still turns green when the token authentication is a success
 Future Features 
 -----------
 1. Filter animals by location
-2. Filter animals by breed
-3. 
+2. Filter animals by breed 
 
 =======
