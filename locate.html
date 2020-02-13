@@ -62,11 +62,20 @@
               <option value="Fish">Fish</option>
               <!--<option value="Other">Other</option>-->
             </select>
-             <button onclick="init(); displayByType(dropdownSelection.value)" type="button" class="btn btn-default"> <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></button>
+            <select id="dropdownSelection2">
+              <option value="Any">Any</option>
+              <option value="Size">Sort By Size</option>
+              <option value="Breed">Sort By Breed</option>
+              <option value="Age">Sort By Age</option>
+              <!--<option value="Other">Other</option>-->
+            </select>
+             <button onclick="init(); displayResult(dropdownSelection.value, dropdownSelection2.value)" type="button" class="btn btn-default"> <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></button>
             </center>
           </div>
       </main>
-	
+
+		<hr>
+
       <!--This is where the pet's data will be displayed -->
       <div id="feedContent">
       </div>

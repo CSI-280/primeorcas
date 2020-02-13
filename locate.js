@@ -5,23 +5,40 @@ var secret = "ACCq1YmJ2XzZxT6WrvbSU9voepnbCllw0NmSF363";
 
 var pf = new petfinder.Client({apiKey: key, secret: secret});
 
+var display = document.getElementById("feedContent");
+
 function init()
 {
   pf.animal.search()
 	.then(function (response){
 		document.body.style.backgroundColor = "green";
-
-    console.log(response.data.animals)
+    //console.log(response.data.animals);
 	})
 	.catch(function (error){
+    display.innerHTML = "Search Failed! Retry.";
 		document.body.style.backgroundColor = "red";
-
-
 	});
-	
 }
 
-var display = document.getElementById("feedContent");
+function displayResult(animal, sort)
+{
+  if(sort == "Any")
+  {
+    displayByType(animal);
+  }
+  else if(sort == "Size")
+  {
+    displayBySize(animal);
+  }
+  else if(sort == "Breed")
+  {
+    displayByBreed(animal);
+  }
+  else
+  {
+    displayByAge(animal);
+  }
+}
 
 function displayByType(result)
 {
@@ -76,6 +93,7 @@ function displayByType(result)
   }
   
 }
+
 /*
 function displayByBreed(result)
 {
@@ -132,12 +150,6 @@ function displayByBreed(result)
 
 }
 */
-
-function displayByColor(result)
-{
-
-
-}
 
 function displayByAge(result)
 {
@@ -211,21 +223,6 @@ function displayByAge(result)
 		  })
 	  }
 } 
-
-function displayByGender(result)
-{
-
-}
-
-function displayByEnvironment(result)
-{
-
-}
-
-function displayByAttributes(result)
-{
-
-}
 
 function displayBySize(result)
 {
