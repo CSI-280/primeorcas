@@ -18,6 +18,7 @@ function init()
 
 
 	});
+	
 }
 
 var display = document.getElementById("feedContent");
@@ -75,12 +76,13 @@ function displayByType(result)
   }
   
 }
-
+/*
 function displayByBreed(result)
 {
 	display.innerHTML = ""; //Clear the innerHTMl
-	if (result == "Animals")
+	if (result. == "Animals")
 	{	
+
 		pf.animal.search()
 		.then(function (response){
 		  display.innerHTML = ""; //Clear the innerHTMl
@@ -129,6 +131,7 @@ function displayByBreed(result)
 	  
 
 }
+*/
 
 function displayByColor(result)
 {
@@ -138,8 +141,76 @@ function displayByColor(result)
 
 function displayByAge(result)
 {
+	display.innerHTML = ""; //Clear the innerHTMl
+	if (result == "Animals")
+	{	
 
-}
+		pf.animal.search()
+		.then(function (response){
+		  display.innerHTML = ""; //Clear the innerHTMl
+		  
+		  var animalList = []
+		  
+		  for (var i = 0; i < response.data.animals.length; i++)
+		  {
+			  animalList[i] = response.data.animals[i];
+		  }
+		  
+		  for (var i = 0; i < animalList.length; i++)
+		  {
+			  var temp;
+			  
+			  if (animalList[i] > animalList[i + 1])
+			  {
+				  temp = animalList[i];
+				  animalList[i] = animalList[i + 1];
+				  animalList[i + 1] = temp;
+			  }
+		  }
+		  
+		  for (var i = 0; i < animalList.length; i++ )
+		  {
+			var item = animalList[i];
+			var petName = item.name;
+			var petID = item.id;
+			var breed = item.breeds.primary;
+			var petSize = item.size;
+			var petAge = item.age;
+			var petDescription = item.description;
+			display.innerHTML += "<h2>" + petName + "</h2>";
+			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
+			display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+		  }
+		  })
+	  }
+	  else
+	  {
+		pf.animal.search({type: result})
+		.then(function (response){
+		  if (response.data.animals.length > 0) {
+			display.innerHTML = ""; //Clear the innerHTMl
+			for (var i = 0; i < response.data.animals.length; i++ )
+			{
+			  var item = response.data.animals[i];
+			  var petName = item.name;
+			  var petID = item.id;
+			  var breed = item.breeds.primary;
+			  var petSize = item.size;
+			  var petAge = item.age;
+			  var petDescription = item.description;
+			  display.innerHTML += "<h2>" + petName + "</h2>";
+			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
+			  display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			}
+		  }
+		  else
+		  {
+			display.innerHTML += "<h2> No " + result + " found in your area... </h2>";
+		  }
+		  
+		  })
+	  }
+} 
 
 function displayByGender(result)
 {
