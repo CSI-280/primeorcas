@@ -79,12 +79,60 @@ function displayByType(result)
 function displayByBreed(result)
 {
 	display.innerHTML = ""; //Clear the innerHTMl
-
+	if (result == "Animals")
+	{	
+		pf.animal.search()
+		.then(function (response){
+		  display.innerHTML = ""; //Clear the innerHTMl
+		  for (var i = 0; i < response.data.animals.length; i++ )
+		  {
+			var item = response.data.animals[i];
+			var petName = item.name;
+			var petID = item.id;
+			var breed = item.breeds.primary;
+			var petSize = item.size;
+			var petAge = item.age;
+			var petDescription = item.description;
+			display.innerHTML += "<h2>" + petName + "</h2>";
+			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
+			display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+		  }
+		  })
+	  }
+	  else
+	  {
+		pf.animal.search({type: result})
+		.then(function (response){
+		  if (response.data.animals.length > 0) {
+			display.innerHTML = ""; //Clear the innerHTMl
+			for (var i = 0; i < response.data.animals.length; i++ )
+			{
+			  var item = response.data.animals[i];
+			  var petName = item.name;
+			  var petID = item.id;
+			  var breed = item.breeds.primary;
+			  var petSize = item.size;
+			  var petAge = item.age;
+			  var petDescription = item.description;
+			  display.innerHTML += "<h2>" + petName + "</h2>";
+			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
+			  display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			}
+		  }
+		  else
+		  {
+			display.innerHTML += "<h2> No " + result + " found in your area... </h2>";
+		  }
+		  
+		  })
+	  }
+	  
 
 }
 
 function displayByColor(result)
 {
+
 
 }
 
