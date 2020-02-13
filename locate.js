@@ -78,6 +78,8 @@ function displayByType(result)
 
 function displayByBreed(result)
 {
+	display.innerHTML = ""; //Clear the innerHTMl
+
 
 }
 
@@ -142,7 +144,7 @@ function showSlides(n)
 }
 
 /* Un-comment this to make the slides automatically scroll */
-/*
+
 var slideIndex = 0;
 showSlides();
 function showSlides() {
@@ -155,4 +157,4 @@ function showSlides() {
   if (slideIndex > slides.length) {slideIndex = 1}
   slides[slideIndex-1].style.display = "block";
   setTimeout(showSlides, 2000); // Change image every 2 seconds
-}*/
+}
