@@ -68,9 +68,8 @@ function displayByType(result)
 		var petAge = item.age;
 		var petLocation = item.contact.address.city + ", " + item.contact.address.state;
 		var petDescription = item.description;
-		var petPicture = item.photos.full
-		var img = document.createElement("img");
-		img.src = petPicture;
+		var petPicture = item.photos[0].full
+			  var img = " <img src=" + petPicture + "alt='Pet' height='200' width='200'></img>";
 		display.innerHTML += img;
         display.innerHTML += "<h2>" + petName + "</h2>";
         display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
@@ -94,9 +93,8 @@ function displayByType(result)
 		  var petAge = item.age;
 		  var petLocation = item.contact.address.city + ", " + item.contact.address.state;
 		  var petDescription = item.description;
-		  var petPicture = item.photos.full
-		  var img = document.createElement("img");
-		  img.src = petPicture;
+		  var petPicture = item.photos[0].full
+			  var img = " <img src=" + petPicture + "alt='Pet' height='200' width='200'></img>";
 		  display.innerHTML += img;
           display.innerHTML += "<h2>" + petName + "</h2>";
           display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
@@ -131,9 +129,8 @@ function displayByLocation(location, animal)
 			var petAge = item.age;
 			var petLocation = item.contact.address.city + ", " + item.contact.address.state;
 			var petDescription = item.description;
-			var petPicture = item.photos.full
-			var img = document.createElement("img");
-			img.src = petPicture;
+			var petPicture = item.photos[0].full
+			  var img = " <img src=" + petPicture + "alt='Pet' height='200' width='200'></img>";
 			display.innerHTML += img;
 			display.innerHTML += "<h2>" + petName + "</h2>";
 			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
@@ -162,9 +159,8 @@ function displayByBreed(result)
 			var petAge = item.age;
 			var petLocation = item.contact.address.city + ", " + item.contact.address.state;
 			var petDescription = item.description;
-			var petPicture = item.photos.full
-			var img = document.createElement("img");
-			img.src = petPicture;
+			var petPicture = item.photos[0].full
+			  var img = " <img src=" + petPicture + "alt='Pet' height='200' width='200'></img>";
 			display.innerHTML += img;
 			display.innerHTML += "<h2>" + petName + "</h2>";
 			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
@@ -188,9 +184,8 @@ function displayByBreed(result)
 			  var petAge = item.age;
 			  var petLocation = item.contact.address.city + ", " + item.contact.address.state;
 			  var petDescription = item.description;
-			  var petPicture = item.photos.full
-			  var img = document.createElement("img");
-			  img.src = petPicture;
+			  var petPicture = item.photos[0].full
+			  var img = " <img src=" + petPicture + "alt='Pet' height='200' width='200'></img>";
 			  display.innerHTML += img;
 			  display.innerHTML += "<h2>" + petName + "</h2>";
 			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
@@ -245,9 +240,8 @@ function displayByAge(result)
 			var petAge = item.age;
 			var petLocation = item.contact.address.city + ", " + item.contact.address.state;
 			var petDescription = item.description;
-			var petPicture = item.photos.full
-			var img = document.createElement("img");
-			img.src = petPicture;
+			var petPicture = item.photos[0].full
+			  var img = " <img src=" + petPicture + "alt='Pet' height='200' width='200'></img>";
 			display.innerHTML += img;
 			display.innerHTML += "<h2>" + petName + "</h2>";
 			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
@@ -271,9 +265,8 @@ function displayByAge(result)
 			  var petAge = item.age;
 			  var petLocation = item.contact.address.city + ", " + item.contact.address.state;
 			  var petDescription = item.description;
-			  var petPicture = item.photos.full
-			  var img = document.createElement("img");
-			  img.src = petPicture;
+			  var petPicture = item.photos[0].full
+			  var img = " <img src=" + petPicture + "alt='Pet' height='200' width='200'></img>";
 			  display.innerHTML += img;
 			  display.innerHTML += "<h2>" + petName + "</h2>";
 			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize +  " || Location: "+ petLocation + "</h4>";
@@ -328,9 +321,8 @@ function displayBySize(result)
 			var petAge = item.age;
 			var petLocation = item.contact.address.city + ", " + item.contact.address.state;
 			var petDescription = item.description;
-			var petPicture = item.photos.full
-			var img = document.createElement("img");
-			img.src = petPicture;
+			var petPicture = item.photos[0].full
+			  var img = " <img src=" + petPicture + "alt='Pet' height='200' width='200'></img>";
 			display.innerHTML += img;
 			display.innerHTML += "<h2>" + petName + "</h2>";
 			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
@@ -354,9 +346,8 @@ function displayBySize(result)
 			  var petAge = item.age;
 			  var petLocation = item.contact.address.city + ", " + item.contact.address.state;
 			  var petDescription = item.description;
-			  var petPicture = item.photos.full
-			  var img = document.createElement("img");
-			  img.src = petPicture;
+			  var petPicture = item.photos[0].full
+			  var img = " <img src=" + petPicture + "alt='Pet' height='200' width='200'></img>";
 		      display.innerHTML += img;
 			  display.innerHTML += "<h2>" + petName + "</h2>";
 			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
