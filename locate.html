@@ -53,7 +53,7 @@
 			
 			<h2>Find Pets By Location:</h2>
             <p>Enter your address and select the type of pet you're looking for, and we'll locate pets up for adoption near you!</p>
-            <center><input type="text" id = "inputBox" placeholder="Enter your City, State, or ZIP..." value="Burlington, VT"> 
+            <center><input type="text" id = "inputBox" placeholder="Enter your City, State, or ZIP..." value="Burlington"> 
             <select id="dropdownSelection">
               <option value="Animals">All Pets</option>
               <option value="Dog">Dogs</option>
@@ -67,6 +67,7 @@
               <option value="Size">Sort By Size</option>
               <option value="Breed">Sort By Breed</option>
               <option value="Age">Sort By Age</option>
+              <option value="Location">Sort By Location</option>
               <!--<option value="Other">Other</option>-->
             </select>
              <button onclick="init(); displayResult(dropdownSelection.value, dropdownSelection2.value)" type="button" class="btn btn-default"> <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></button>
@@ -84,7 +85,7 @@
 </body>
 
 <footer style="position:fixed; bottom:0;" class="footer">
-    <p>&copy; Company 2018</p>
+    <p>&copy; Company 2020</p>
 </footer>
 	  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
