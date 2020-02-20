@@ -1,67 +1,374 @@
 /* The .js for the locate page */
 
 var key = "HB4E0LPBodtgXJlBVOYvZSDaxgGSCA7Li7Eq6tqb6uVDRfzAp4";
-var secret = "ACCq1YmJ2XzZxT6WrvbSU9voepnbCllw0NmSF363";
+var secret = "rr6C5OrDLoCg3mP0rk4ztxVTLw3sHwgmvUUMf3zn";
 
-/*var pf = new petfinder.Client({apiKey: key, secret: secret});
+var pf = new petfinder.Client({apiKey: key, secret: secret});
 
-pf.authenticate()
+var display = document.getElementById("feedContent");
+
+function init()
 {
-  // MAY NEED TO IMPLEMENT LATER 
-}
-
-pf.animal.search()
+  pf.animal.search()
 	.then(function (response){
 		document.body.style.backgroundColor = "green";
-
-    console.log(response.data.animals)
+    //console.log(response.data.animals);
 	})
 	.catch(function (error){
+    display.innerHTML = "Search Failed! Retry.";
 		document.body.style.backgroundColor = "red";
+	});
+}
 
+function displayResult(animal, sort)
+{
+//   if(ele != NULL){
+// 	displayByLocation(animal);
+//   }
+  if(sort == "Any")
+  {
+    displayByType(animal);
+  }
+  else if(sort == "Size")
+  {
+    displayBySize(animal);
+  }
+  else if(sort == "Breed")
+  {
+    displayByBreed(animal);
+  }
+  else if (sort == "Location")
+  {
+	var location = document.getElementById("inputBox").value;
 
-	});*/
-
-display = document.getElementById("display");
+	  displayByLocation(location, animal);
+  }
+  else
+  {
+    displayByAge(animal);
+  }
+}
 
 function displayByType(result)
 {
-  display.innerHTML += "";
+  
+  display.innerHTML = ""; //Clear the innerHTMl
+  if (result == "Animals")
+  {
+    pf.animal.search()
+    .then(function (response){
+      display.innerHTML = ""; //Clear the innerHTMl
+      for (var i = 0; i < response.data.animals.length; i++ )
+      {
+        var item = response.data.animals[i];
+        var petName = item.name;
+        var petID = item.id;
+        var breed = item.breeds.primary;
+        var petSize = item.size;
+		var petAge = item.age;
+		var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+		var petDescription = item.description;
+		var petPicture = item.photos.full
+		var img = document.createElement("img");
+		img.src = petPicture;
+		display.innerHTML += img;
+        display.innerHTML += "<h2>" + petName + "</h2>";
+        display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
+        display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+      }
+	  })
+  }
+  else
+  {
+    pf.animal.search({type: result})
+    .then(function (response){
+      if (response.data.animals.length > 0) {
+        display.innerHTML = ""; //Clear the innerHTMl
+        for (var i = 0; i < response.data.animals.length; i++ )
+        {
+          var item = response.data.animals[i];
+          var petName = item.name;
+          var petID = item.id;
+          var breed = item.breeds.primary;
+          var petSize = item.size;
+		  var petAge = item.age;
+		  var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+		  var petDescription = item.description;
+		  var petPicture = item.photos.full
+		  var img = document.createElement("img");
+		  img.src = petPicture;
+		  display.innerHTML += img;
+          display.innerHTML += "<h2>" + petName + "</h2>";
+          display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
+          display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+        }
+      }
+      else
+      {
+        display.innerHTML += "<h2> No " + result + " found in your area... </h2>";
+      }
+      
+	  })
+  }
+  
+}
+
+function displayByLocation(location, animal)
+{
+	var ele = document.getElementById("inputBox");
+	display.innerHTML = ""; //Clear the innerHTMl
+		pf.animal.search({location: location, type: animal})
+		.then(function (response){
+		  console.log(response);
+		  display.innerHTML = ""; //Clear the innerHTMl
+		  for (var i = 0; i < response.data.animals.length; i++ )
+		  {
+			var item = response.data.animals[i];
+			var petName = item.name;
+			var petID = item.id;
+			var breed = item.breeds.primary;
+			var petSize = item.size;
+			var petAge = item.age;
+			var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+			var petDescription = item.description;
+			var petPicture = item.photos.full
+			var img = document.createElement("img");
+			img.src = petPicture;
+			display.innerHTML += img;
+			display.innerHTML += "<h2>" + petName + "</h2>";
+			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
+			display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+		  }
+		  })
 }
 
 function displayByBreed(result)
 {
+	display.innerHTML = ""; //Clear the innerHTMl
+	if (result == "Animals")
+	{	
 
-}
-
-function displayByColor(result)
-{
-
+		pf.animal.search()
+		.then(function (response){
+		  display.innerHTML = ""; //Clear the innerHTMl
+		  for (var i = 0; i < response.data.animals.length; i++ )
+		  {
+			var item = response.data.animals[i];
+			var petName = item.name;
+			var petID = item.id;
+			var breed = item.breeds.primary;
+			var petSize = item.size;
+			var petAge = item.age;
+			var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+			var petDescription = item.description;
+			var petPicture = item.photos.full
+			var img = document.createElement("img");
+			img.src = petPicture;
+			display.innerHTML += img;
+			display.innerHTML += "<h2>" + petName + "</h2>";
+			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
+			display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+		  }
+		  })
+	  }
+	  else
+	  {
+		pf.animal.search({type: result})
+		.then(function (response){
+		  if (response.data.animals.length > 0) {
+			display.innerHTML = ""; //Clear the innerHTMl
+			for (var i = 0; i < response.data.animals.length; i++ )
+			{
+			  var item = response.data.animals[i];
+			  var petName = item.name;
+			  var petID = item.id;
+			  var breed = item.breeds.primary;
+			  var petSize = item.size;
+			  var petAge = item.age;
+			  var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+			  var petDescription = item.description;
+			  var petPicture = item.photos.full
+			  var img = document.createElement("img");
+			  img.src = petPicture;
+			  display.innerHTML += img;
+			  display.innerHTML += "<h2>" + petName + "</h2>";
+			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
+			  display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			}
+		  }
+		  else
+		  {
+			display.innerHTML += "<h2> No " + result + " found in your area... </h2>";
+		  }
+		  
+		  })
+	  }
 }
 
 function displayByAge(result)
 {
+	display.innerHTML = ""; //Clear the innerHTMl
+	if (result == "Animals")
+	{	
 
-}
-
-function displayByGender(result)
-{
-
-}
-
-function displayByEnvironment(result)
-{
-
-}
-
-function displayByAttributes(result)
-{
-
-}
+		pf.animal.search()
+		.then(function (response){
+		  display.innerHTML = ""; //Clear the innerHTMl
+		  
+		  var animalList = []
+		  
+		  for (var i = 0; i < response.data.animals.length; i++)
+		  {
+			  animalList[i] = response.data.animals[i];
+		  }
+		  
+		  for (var i = 0; i < animalList.length; i++)
+		  {
+			  var temp;
+			  
+			  if (animalList[i] > animalList[i + 1])
+			  {
+				  temp = animalList[i];
+				  animalList[i] = animalList[i + 1];
+				  animalList[i + 1] = temp;
+			  }
+		  }
+		  
+		  for (var i = 0; i < animalList.length; i++ )
+		  {
+			var item = animalList[i];
+			var petName = item.name;
+			var petID = item.id;
+			var breed = item.breeds.primary;
+			var petSize = item.size;
+			var petAge = item.age;
+			var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+			var petDescription = item.description;
+			var petPicture = item.photos.full
+			var img = document.createElement("img");
+			img.src = petPicture;
+			display.innerHTML += img;
+			display.innerHTML += "<h2>" + petName + "</h2>";
+			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
+			display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+		  }
+		  })
+	  }
+	  else
+	  {
+		pf.animal.search({type: result})
+		.then(function (response){
+		  if (response.data.animals.length > 0) {
+			display.innerHTML = ""; //Clear the innerHTMl
+			for (var i = 0; i < response.data.animals.length; i++ )
+			{
+			  var item = response.data.animals[i];
+			  var petName = item.name;
+			  var petID = item.id;
+			  var breed = item.breeds.primary;
+			  var petSize = item.size;
+			  var petAge = item.age;
+			  var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+			  var petDescription = item.description;
+			  var petPicture = item.photos.full
+			  var img = document.createElement("img");
+			  img.src = petPicture;
+			  display.innerHTML += img;
+			  display.innerHTML += "<h2>" + petName + "</h2>";
+			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize +  " || Location: "+ petLocation + "</h4>";
+			  display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			}
+		  }
+		  else
+		  {
+			display.innerHTML += "<h2> No " + result + " found in your area... </h2>";
+		  }
+		  
+		  })
+	  }
+} 
 
 function displayBySize(result)
 {
+	display.innerHTML = ""; //Clear the innerHTMl
+	if (result == "Animals")
+	{	
 
+		pf.animal.search()
+		.then(function (response){
+		  display.innerHTML = ""; //Clear the innerHTMl
+		  
+		  var animalList = []
+		  
+		  for (var i = 0; i < response.data.animals.length; i++)
+		  {
+			  animalList[i] = response.data.animals[i];
+		  }
+		  
+		  for (var i = 0; i < animalList.length; i++)
+		  {
+			  var temp;
+			  
+			  if (animalList[i] > animalList[i + 1])
+			  {
+				  temp = animalList[i];
+				  animalList[i] = animalList[i + 1];
+				  animalList[i + 1] = temp;
+			  }
+		  }
+		  
+		  for (var i = 0; i < animalList.length; i++ )
+		  {
+			var item = animalList[i];
+			var petName = item.name;
+			var petID = item.id;
+			var breed = item.breeds.primary;
+			var petSize = item.size;
+			var petAge = item.age;
+			var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+			var petDescription = item.description;
+			var petPicture = item.photos.full
+			var img = document.createElement("img");
+			img.src = petPicture;
+			display.innerHTML += img;
+			display.innerHTML += "<h2>" + petName + "</h2>";
+			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
+			display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+		  }
+		  })
+	  }
+	  else
+	  {
+		pf.animal.search({type: result})
+		.then(function (response){
+		  if (response.data.animals.length > 0) {
+			display.innerHTML = ""; //Clear the innerHTMl
+			for (var i = 0; i < response.data.animals.length; i++ )
+			{
+			  var item = response.data.animals[i];
+			  var petName = item.name;
+			  var petID = item.id;
+			  var breed = item.breeds.primary;
+			  var petSize = item.size;
+			  var petAge = item.age;
+			  var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+			  var petDescription = item.description;
+			  var petPicture = item.photos.full
+			  var img = document.createElement("img");
+			  img.src = petPicture;
+		      display.innerHTML += img;
+			  display.innerHTML += "<h2>" + petName + "</h2>";
+			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
+			  display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			}
+		  }
+		  else
+		  {
+			display.innerHTML += "<h2> No " + result + " found in your area... </h2>";
+		  }
+		  
+		  })
+	  }
 }
 
 //slides code from this point on.
@@ -107,5 +414,5 @@ function showSlides() {
   slideIndex++;
   if (slideIndex > slides.length) {slideIndex = 1}
   slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
+  setTimeout(showSlides, 4000); // Change image every 4 seconds
 }*/
