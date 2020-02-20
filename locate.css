@@ -8,6 +8,10 @@
 	box-sizing: border-box;
 }
 
+p, h2, h4, h5{
+  text-align: center;
+}
+
 /*slideshow*/
 .petSlideshow { 
 	display: none

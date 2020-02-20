@@ -74,7 +74,7 @@ function displayByType(result)
 		display.innerHTML += img;
         display.innerHTML += "<h2>" + petName + "</h2>";
         display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
-        display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+        display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
       }
 	  })
   }
@@ -100,7 +100,7 @@ function displayByType(result)
 		  display.innerHTML += img;
           display.innerHTML += "<h2>" + petName + "</h2>";
           display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
-          display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+          display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
         }
       }
       else
@@ -137,7 +137,8 @@ function displayByLocation(location, animal)
 			display.innerHTML += img;
 			display.innerHTML += "<h2>" + petName + "</h2>";
 			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
-			display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
+
 		  }
 		  })
 }
@@ -167,7 +168,7 @@ function displayByBreed(result)
 			display.innerHTML += img;
 			display.innerHTML += "<h2>" + petName + "</h2>";
 			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
-			display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
 		  }
 		  })
 	  }
@@ -193,7 +194,7 @@ function displayByBreed(result)
 			  display.innerHTML += img;
 			  display.innerHTML += "<h2>" + petName + "</h2>";
 			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
-			  display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			  display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
 			}
 		  }
 		  else
@@ -250,7 +251,7 @@ function displayByAge(result)
 			display.innerHTML += img;
 			display.innerHTML += "<h2>" + petName + "</h2>";
 			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
-			display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
 		  }
 		  })
 	  }
@@ -276,7 +277,7 @@ function displayByAge(result)
 			  display.innerHTML += img;
 			  display.innerHTML += "<h2>" + petName + "</h2>";
 			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize +  " || Location: "+ petLocation + "</h4>";
-			  display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			  display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
 			}
 		  }
 		  else
@@ -333,7 +334,7 @@ function displayBySize(result)
 			display.innerHTML += img;
 			display.innerHTML += "<h2>" + petName + "</h2>";
 			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
-			display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
 		  }
 		  })
 	  }
@@ -359,7 +360,7 @@ function displayBySize(result)
 		      display.innerHTML += img;
 			  display.innerHTML += "<h2>" + petName + "</h2>";
 			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
-			  display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			  display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
 			}
 		  }
 		  else
@@ -416,3 +417,4 @@ function showSlides() {
   slides[slideIndex-1].style.display = "block";
   setTimeout(showSlides, 4000); // Change image every 4 seconds
 }*/
+
