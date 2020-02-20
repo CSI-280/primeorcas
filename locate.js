@@ -11,10 +11,12 @@ function init()
 {
   pf.animal.search()
 	.then(function (response){
+		document.body.style.backgroundColor = "green";
     //console.log(response.data.animals);
 	})
 	.catch(function (error){
     display.innerHTML = "Search Failed! Retry.";
+		document.body.style.backgroundColor = "red";
 	});
 }
 
@@ -136,6 +138,7 @@ function displayByLocation(location, animal)
 			display.innerHTML += "<h2>" + petName + "</h2>";
 			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
 			display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
+
 		  }
 		  })
 }
@@ -400,7 +403,7 @@ function showSlides(n)
 }
 
 /* Un-comment this to make the slides automatically scroll */
-
+/*
 var slideIndex = 0;
 showSlides();
 function showSlides() {
@@ -412,5 +415,6 @@ function showSlides() {
   slideIndex++;
   if (slideIndex > slides.length) {slideIndex = 1}
   slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 3000); // Change image every 10 seconds
-}
+  setTimeout(showSlides, 4000); // Change image every 4 seconds
+}*/
+
