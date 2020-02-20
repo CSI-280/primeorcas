@@ -4,6 +4,7 @@ body {
   padding-bottom: 1.5rem;
 }
 
+
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -12,24 +13,21 @@ body {
   padding-left: 1rem;
 }
 
-h1 {
-  font-family: fantasy;
-  text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 
-  2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px
-   #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
+p, h1, h2, h4, h5{
+  color:black;
+  text-align:center
 }
 
-h4, h5{
-  text-shadow: 1px 1px;
-  font-family: Times, Georgia, serif;
-  font-weight: bold;
-  font-style: italic;
+.bodytxt{
+  color:#292929
 }
-
-.bodytxt, .card-txt {
-  text-shadow: 1px 1px 0 rgb(67, 190, 190), 1px -1px 0 rgb(67, 190, 190), -1px 1px 0 rgb(67, 190, 190), -1px -1px 0 
-  rgb(67, 190, 190), 1px 0px 0 rgb(67, 190, 190), 0px 1px 0 rgb(67, 190, 190), -1px 0px 0 rgb(67, 190, 190), 0px -1px 0 rgb(67, 190, 190);
-  font-family: serif;
+.card-txt {
+  color:black
+}
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
 }
 
 /* Custom page header */
@@ -48,7 +46,7 @@ h4, h5{
 /* Custom page footer */
 .footer {
   padding-top: 1.5rem;
-  color: rgb(77, 75, 75);
+  color: black;
   border-top: .05rem solid #e5e5e5;
 }
 
@@ -71,10 +69,6 @@ h4, h5{
 .jumbotron .btn {
   padding: .75rem 1.5rem;
   font-size: 1.5rem;
-}
-
-.lead{
-  font-style: italic;
 }
 
 /* Supporting marketing content */
