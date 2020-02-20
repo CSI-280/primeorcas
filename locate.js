@@ -1,7 +1,7 @@
 /* The .js for the locate page */
 
 var key = "HB4E0LPBodtgXJlBVOYvZSDaxgGSCA7Li7Eq6tqb6uVDRfzAp4";
-var secret = "ACCq1YmJ2XzZxT6WrvbSU9voepnbCllw0NmSF363";
+var secret = "rr6C5OrDLoCg3mP0rk4ztxVTLw3sHwgmvUUMf3zn";
 
 var pf = new petfinder.Client({apiKey: key, secret: secret});
 
@@ -20,6 +20,9 @@ function init()
 
 function displayResult(animal, sort)
 {
+//   if(ele != NULL){
+// 	displayByLocation(animal);
+//   }
   if(sort == "Any")
   {
     displayByType(animal);
@@ -31,6 +34,12 @@ function displayResult(animal, sort)
   else if(sort == "Breed")
   {
     displayByBreed(animal);
+  }
+  else if (sort == "Location")
+  {
+	var location = document.getElementById("inputBox").value;
+
+	  displayByLocation(location, animal);
   }
   else
   {
@@ -54,10 +63,15 @@ function displayByType(result)
         var petID = item.id;
         var breed = item.breeds.primary;
         var petSize = item.size;
-        var petAge = item.age;
-        var petDescription = item.description;
+		var petAge = item.age;
+		var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+		var petDescription = item.description;
+		var petPicture = item.photos.full
+		var img = document.createElement("img");
+		img.src = petPicture;
+		display.innerHTML += img;
         display.innerHTML += "<h2>" + petName + "</h2>";
-        display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
+        display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
         display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
       }
 	  })
@@ -75,10 +89,15 @@ function displayByType(result)
           var petID = item.id;
           var breed = item.breeds.primary;
           var petSize = item.size;
-          var petAge = item.age;
-          var petDescription = item.description;
+		  var petAge = item.age;
+		  var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+		  var petDescription = item.description;
+		  var petPicture = item.photos.full
+		  var img = document.createElement("img");
+		  img.src = petPicture;
+		  display.innerHTML += img;
           display.innerHTML += "<h2>" + petName + "</h2>";
-          display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
+          display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
           display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
         }
       }
@@ -92,11 +111,39 @@ function displayByType(result)
   
 }
 
-/*
+function displayByLocation(location, animal)
+{
+	var ele = document.getElementById("inputBox");
+	display.innerHTML = ""; //Clear the innerHTMl
+		pf.animal.search({location: location, type: animal})
+		.then(function (response){
+		  console.log(response);
+		  display.innerHTML = ""; //Clear the innerHTMl
+		  for (var i = 0; i < response.data.animals.length; i++ )
+		  {
+			var item = response.data.animals[i];
+			var petName = item.name;
+			var petID = item.id;
+			var breed = item.breeds.primary;
+			var petSize = item.size;
+			var petAge = item.age;
+			var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+			var petDescription = item.description;
+			var petPicture = item.photos.full
+			var img = document.createElement("img");
+			img.src = petPicture;
+			display.innerHTML += img;
+			display.innerHTML += "<h2>" + petName + "</h2>";
+			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
+			display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
+		  }
+		  })
+}
+
 function displayByBreed(result)
 {
 	display.innerHTML = ""; //Clear the innerHTMl
-	if (result. == "Animals")
+	if (result == "Animals")
 	{	
 
 		pf.animal.search()
@@ -110,10 +157,15 @@ function displayByBreed(result)
 			var breed = item.breeds.primary;
 			var petSize = item.size;
 			var petAge = item.age;
+			var petLocation = item.contact.address.city + ", " + item.contact.address.state;
 			var petDescription = item.description;
+			var petPicture = item.photos.full
+			var img = document.createElement("img");
+			img.src = petPicture;
+			display.innerHTML += img;
 			display.innerHTML += "<h2>" + petName + "</h2>";
-			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
-			display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
+			display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
 		  }
 		  })
 	  }
@@ -131,10 +183,15 @@ function displayByBreed(result)
 			  var breed = item.breeds.primary;
 			  var petSize = item.size;
 			  var petAge = item.age;
+			  var petLocation = item.contact.address.city + ", " + item.contact.address.state;
 			  var petDescription = item.description;
+			  var petPicture = item.photos.full
+			  var img = document.createElement("img");
+			  img.src = petPicture;
+			  display.innerHTML += img;
 			  display.innerHTML += "<h2>" + petName + "</h2>";
-			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
-			  display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
+			  display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
 			}
 		  }
 		  else
@@ -144,10 +201,7 @@ function displayByBreed(result)
 		  
 		  })
 	  }
-	  
-
 }
-*/
 
 function displayByAge(result)
 {
@@ -186,9 +240,14 @@ function displayByAge(result)
 			var breed = item.breeds.primary;
 			var petSize = item.size;
 			var petAge = item.age;
+			var petLocation = item.contact.address.city + ", " + item.contact.address.state;
 			var petDescription = item.description;
+			var petPicture = item.photos.full
+			var img = document.createElement("img");
+			img.src = petPicture;
+			display.innerHTML += img;
 			display.innerHTML += "<h2>" + petName + "</h2>";
-			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
+			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
 			display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
 		  }
 		  })
@@ -207,9 +266,14 @@ function displayByAge(result)
 			  var breed = item.breeds.primary;
 			  var petSize = item.size;
 			  var petAge = item.age;
+			  var petLocation = item.contact.address.city + ", " + item.contact.address.state;
 			  var petDescription = item.description;
+			  var petPicture = item.photos.full
+			  var img = document.createElement("img");
+			  img.src = petPicture;
+			  display.innerHTML += img;
 			  display.innerHTML += "<h2>" + petName + "</h2>";
-			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
+			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize +  " || Location: "+ petLocation + "</h4>";
 			  display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
 			}
 		  }
@@ -224,7 +288,85 @@ function displayByAge(result)
 
 function displayBySize(result)
 {
+	display.innerHTML = ""; //Clear the innerHTMl
+	if (result == "Animals")
+	{	
 
+		pf.animal.search()
+		.then(function (response){
+		  display.innerHTML = ""; //Clear the innerHTMl
+		  
+		  var animalList = []
+		  
+		  for (var i = 0; i < response.data.animals.length; i++)
+		  {
+			  animalList[i] = response.data.animals[i];
+		  }
+		  
+		  for (var i = 0; i < animalList.length; i++)
+		  {
+			  var temp;
+			  
+			  if (animalList[i] > animalList[i + 1])
+			  {
+				  temp = animalList[i];
+				  animalList[i] = animalList[i + 1];
+				  animalList[i + 1] = temp;
+			  }
+		  }
+		  
+		  for (var i = 0; i < animalList.length; i++ )
+		  {
+			var item = animalList[i];
+			var petName = item.name;
+			var petID = item.id;
+			var breed = item.breeds.primary;
+			var petSize = item.size;
+			var petAge = item.age;
+			var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+			var petDescription = item.description;
+			var petPicture = item.photos.full
+			var img = document.createElement("img");
+			img.src = petPicture;
+			display.innerHTML += img;
+			display.innerHTML += "<h2>" + petName + "</h2>";
+			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
+			display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
+		  }
+		  })
+	  }
+	  else
+	  {
+		pf.animal.search({type: result})
+		.then(function (response){
+		  if (response.data.animals.length > 0) {
+			display.innerHTML = ""; //Clear the innerHTMl
+			for (var i = 0; i < response.data.animals.length; i++ )
+			{
+			  var item = response.data.animals[i];
+			  var petName = item.name;
+			  var petID = item.id;
+			  var breed = item.breeds.primary;
+			  var petSize = item.size;
+			  var petAge = item.age;
+			  var petLocation = item.contact.address.city + ", " + item.contact.address.state;
+			  var petDescription = item.description;
+			  var petPicture = item.photos.full
+			  var img = document.createElement("img");
+			  img.src = petPicture;
+		      display.innerHTML += img;
+			  display.innerHTML += "<h2>" + petName + "</h2>";
+			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + " || Location: "+ petLocation + "</h4>";
+			  display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
+			}
+		  }
+		  else
+		  {
+			display.innerHTML += "<h2> No " + result + " found in your area... </h2>";
+		  }
+		  
+		  })
+	  }
 }
 
 //slides code from this point on.

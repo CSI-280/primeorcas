@@ -1,16 +1,14 @@
-/* The .css for the betsy page */
+/* The .css for the adopt page */
 
 /* Text container */
 .text {
 	max-width: 1000px;
 	position: relative;
 	margin: auto;
-	font-family: fantasy;
-  	font-style: italic; 
 }
 /* Image */
 .main-img {
-	max-width: 60%;
+	max-width: 80%;
   	height: auto;
 	border-radius: 12px;
 	display: block;

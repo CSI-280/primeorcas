@@ -54,7 +54,7 @@
 			
 			<h2>Find Pets By Location:</h2>
             <p>Enter your address and select the type of pet you're looking for, and we'll locate pets up for adoption near you!</p>
-            <center><input type="text" id = "inputBox" placeholder="Enter your City, State, or ZIP..." value="Burlington, VT"> 
+            <center><input type="text" id = "inputBox" placeholder="Enter your City, State, or ZIP..." value="Burlington"> 
             <select id="dropdownSelection">
               <option value="Animals">All Pets</option>
               <option value="Dog">Dogs</option>
@@ -68,6 +68,7 @@
               <option value="Size">Sort By Size</option>
               <option value="Breed">Sort By Breed</option>
               <option value="Age">Sort By Age</option>
+              <option value="Location">Sort By Location</option>
               <!--<option value="Other">Other</option>-->
             </select>
              <button onclick="init(); displayResult(dropdownSelection.value, dropdownSelection2.value)" type="button" class="btn btn-default"> <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span></button>
