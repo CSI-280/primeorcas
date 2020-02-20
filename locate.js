@@ -11,12 +11,10 @@ function init()
 {
   pf.animal.search()
 	.then(function (response){
-		document.body.style.backgroundColor = "green";
     //console.log(response.data.animals);
 	})
 	.catch(function (error){
     display.innerHTML = "Search Failed! Retry.";
-		document.body.style.backgroundColor = "red";
 	});
 }
 
@@ -60,7 +58,7 @@ function displayByType(result)
         var petDescription = item.description;
         display.innerHTML += "<h2>" + petName + "</h2>";
         display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
-        display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+        display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
       }
 	  })
   }
@@ -81,7 +79,7 @@ function displayByType(result)
           var petDescription = item.description;
           display.innerHTML += "<h2>" + petName + "</h2>";
           display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
-          display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+          display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
         }
       }
       else
@@ -191,7 +189,7 @@ function displayByAge(result)
 			var petDescription = item.description;
 			display.innerHTML += "<h2>" + petName + "</h2>";
 			display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
-			display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
 		  }
 		  })
 	  }
@@ -212,7 +210,7 @@ function displayByAge(result)
 			  var petDescription = item.description;
 			  display.innerHTML += "<h2>" + petName + "</h2>";
 			  display.innerHTML += "<h4>Age: " + petAge + " ||  Breed: " + breed + " || Size: " + petSize + "</h4>";
-			  display.innerHTML += "<h4>" + petDescription + "</h4> <br>";
+			  display.innerHTML += "<h5>" + petDescription + "</h5> <br>";
 			}
 		  }
 		  else
@@ -272,5 +270,5 @@ function showSlides() {
   slideIndex++;
   if (slideIndex > slides.length) {slideIndex = 1}
   slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
+  setTimeout(showSlides, 2000); // Change image every 10 seconds
 }
