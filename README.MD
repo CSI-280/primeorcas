@@ -18,7 +18,7 @@ Setup
     
 How to Use    
 -----------
-Navigate the site using the bar at the top. Recently, the site has been updated to support filtering by animal type.
+Navigate the site using the bar at the top. Recently, the site has been updated to support filtering by breed, age, location, and size.
     
 Notes    
 -----------
