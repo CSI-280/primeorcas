@@ -26,7 +26,7 @@ Page still turns green when the token authentication is a success
 
 Current Features 
 -----------
-1. Home Page and Aninal Locator Page
+1. Home Page and Animal Locator Page
 2. Filtered searches by size, age, breed, and location
 3. Detailed description and picture of each animal
 4. Information Page on what it means to adopt 
