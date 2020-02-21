@@ -18,15 +18,17 @@ Setup
     
 How to Use    
 -----------
-Navigate the site using the bar at the top. Recently, the site has been updated to support filtering by animal type.
+Navigate the site using the bar at the top. Recently, the site has been updated to support filtering by breed, age, location, and size.
     
 Notes    
 -----------
 Page still turns green when the token authentication is a success
 
-Future Features 
+Current Features 
 -----------
-1. Filter animals by location
-2. Filter animals by breed 
+1. Home Page and Animal Locator Page
+2. Filtered searches by size, age, breed, and location
+3. Detailed description and picture of each animal
+4. Information Page on what it means to adopt 
 
 =======
